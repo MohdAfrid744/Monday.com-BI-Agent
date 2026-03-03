@@ -192,9 +192,9 @@ OUTPUT STYLE — STRAIGHT FORWARD:
                     max_tokens=300,
                     temperature=0.7,
                 )
-                follow_text = follow_resp.choices[0].message.content or ""
-                # simple split into list
-                followups = [line.strip("-• ") for line in follow_text.splitlines() if line.strip()]
+            follow_text = follow_resp.choices[0].message.content or ""
+            # simple split into list
+            followups = [line.strip("-• ") for line in follow_text.splitlines() if line.strip()]
             return final_answer, conversation_history, followups
 
         for tool_call in message.tool_calls:
